@@ -62,6 +62,38 @@
         </section>
 
 
+        <!--Seach By Location -->
+        <section>
+            <h2> Seach For A Park </h2>
+            <div class="mb-3">
+                <h5>Select State/Territory</h5>
+              <select class="form-control" name="searchLocation" id="searchLocationList">
+                     
+                 </select>
+              </div>
+          
+                 <button type="submit" id="selectLocationbtn" class="btn btn-primary" value="Select">Search</button>
+
+        </section>
+
+        <div>
+            <h5 id="locationSearchOutput">.....</h5>
+        </div>
+    
+             <!--Search By Park Type -->
+        <section>
+            <div class="mb-3 mt-2" >
+                <h5>Select Park Type</h5>
+              <select class="form-control" name="searchParkType" id="searchParkTypeList">   
+                 </select>
+              </div>
+          
+                 <button type="submit" id="selectParkTypebtn" class="btn btn-primary" value="Select">Search</button>
+
+        </section>
+    
+
+
 
 
 
@@ -125,6 +157,8 @@
 
 
 </body>
+
+<script src="scripts\parks.js"></script>
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
