@@ -159,3 +159,15 @@ body {
   footer li i:hover{
     color: #0b5604;
   }
+
+  
+
+
+
+  .hide {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
