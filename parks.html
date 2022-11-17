@@ -50,9 +50,8 @@
     </header>
 
     <main>
-
         <!--Page Introduction-->
-        <section id="home">
+        <section id="parksHome">
             <div class="container">
                 <h5>For The Love Of Nature</h5>
                 <h1><span>Park</span> Search</h1>
@@ -62,36 +61,54 @@
         </section>
 
 
-        <!--Seach By Location -->
+       <!--Radio Buttons-->
         <section>
             <h2> Seach For A Park </h2>
-            <div class="mb-3">
-                <h5>Select State/Territory</h5>
-              <select class="form-control" name="searchLocation" id="searchLocationList">
-                     
+            <div id="radioselectoptions">
+                <div>
+                    <label for="searchlocationradio">Serach by Location</label>
+                    <input id="searchlocationradio" type="radio" name="searchtype" value="searchlocation" checked>
+                </div>
+                <div>
+                    <label for="searchparktyperadio">Search by Park Type</label>
+                    <input id="searchparktyperadio" type="radio" name="searchtype" value="searchparktype">
+                </div>
+            </div>
+        </section>
+            
+            
+             <!--Seach By Location -->
+            
+            <div id="locationSearch"class="mb-3">
+    
+              <select class="form-control" name="searchLocation" id="searchLocationList"> 
                  </select>
               </div>
-          
-                 <button type="submit" id="selectLocationbtn" class="btn btn-primary" value="Select">Search</button>
 
-        </section>
-
-        <div>
-            <h5 id="locationSearchOutput">.....</h5>
-        </div>
-    
              <!--Search By Park Type -->
-        <section>
+        
             <div class="mb-3 mt-2" >
-                <h5>Select Park Type</h5>
               <select class="form-control" name="searchParkType" id="searchParkTypeList">   
                  </select>
               </div>
           
-                 <button type="submit" id="selectParkTypebtn" class="btn btn-primary" value="Select">Search</button>
-
-        </section>
-    
+            
+        <button type="submit" id="seachbtn" class="btn btn-primary" value="Select">Search</button>
+        
+        <div id="resultsOutput" class="mt-3">
+            <div class="row">
+                <div class="col">
+                    <h1>Park Results:</h1>
+                </div>
+            </div>
+            <div id="resultsSection" class="row">
+                <div class="col-3 card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
 
 
 
@@ -106,8 +123,6 @@
     </main>
 
 
-
-    <!-- Footer-->
 
     <footer class="mt-5 py-5">
         <div class="row">
@@ -158,7 +173,10 @@
 
 </body>
 
-<script src="scripts\parks.js"></script>
+<script src="scripts/parks.js"></script>
+<script src="scripts/locationData.js"></script>
+<script src="scripts/parkTypeData.js"></script>
+<script src="scripts/nationalParkData.js"></script>
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
