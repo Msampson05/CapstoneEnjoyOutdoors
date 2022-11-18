@@ -88,6 +88,8 @@ function selectedSearchType() {
 function seachbtnOnClick() {
     
 
+
+
 }
 
 
@@ -128,19 +130,29 @@ function findParksbyLocation(selectedLocation, location) {
 // Output Park Information 
 
 function displayparksinResults() {
-    nationalParksArray.forEach(park => {
-        let resultsSection = document.getElementById('resultsSection')
 
-        resultsSection.innerHTML = resultsSection.innerHTML + `div id="resultsSection" class="row">
-        <div class="col-3 card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 id="cardTitle"class="card-title">${park.LocationName}</h5>
-              <p id="cardText"class="card-text">${park.Address} ${park.City} ${park.State} ${park.ZipCode} ${park.Phone} ${park.Fax}</p>
-              <a href="#" class="btn btn-primary">${park.Visit}</a>
-            </div>
-          </div>`
+    const resultsSection = document.getElementById("resultsSection");
+    const parkCardTitle = document.getElementById("parkCardTitle");
+    const parkCardText = document.getElementById("parkCardText");
+    const parkVisitLink = document.getElementById("parkVisitLink");
 
-    })
+    for (let displayParks of nationalParksArray ) {
+        if()
+    }
+
+    // nationalParksArray.forEach(park => {
+    //     let resultsSection = document.getElementById('resultsSection')
+
+    //     resultsSection.innerHTML = resultsSection.innerHTML + `div id="resultsSection" class="row">
+    //     <div class="col-3 card" style="width: 18rem;">
+    //         <div class="card-body">
+    //           <h5 id="cardTitle"class="card-title">${park.LocationName}</h5>
+    //           <p id="cardText"class="card-text">${park.Address} ${park.City} ${park.State} ${park.ZipCode} ${park.Phone} ${park.Fax}</p>
+    //           <a href="#" class="btn btn-primary">${park.Visit}</a>
+    //         </div>
+    //       </div>`
+
+    // })
 
 
     //     // call all elements needed for 
