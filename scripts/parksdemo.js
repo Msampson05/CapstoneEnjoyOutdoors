@@ -9,8 +9,7 @@ function init() {
     //FillDropDown
     fillDropdownForLocation()
     fillDropdownForParkType()
-
-    //Select Button
+ 
         //Select Button
     const seachbtn = document.getElementById("seachbtn");
     seachbtn.onclick = seachbtnOnClick;
@@ -87,15 +86,18 @@ function selectedSearchType() {
 
 //Activate search button to output selected results 
 function seachbtnOnClick(){
-    const locationSearch = document.getElementById("locationSearch");
-    let selectedParkSearchType = locationSearch.value;
-    if(selectedParkSearchType == fillDropdownForParkType){
+    //Call elements needed 
+    const resultsSection = document.getElementById("resultsSection")
+    const radioselectoptions = document.getElementById("radioselectoptions")
+
+    let selectedParkSearchType = radioselectoptions.value;
+    if(selectedParkSearchType = searchLocationRadio.checked){
         let selectedOutputResult = findParksByParkType(nationalParksArray, selectedParkSearchType); displayparksinResults;
-        locationSearch.appendChild(selectedOutputResult);
+        resultsSection.appendChild(selectedOutputResult);
     }
-    else if (selectedParkSearchType = fillDropdownForLocation){
+    else if (selectedParkSearchType = searchParkTypeRadio.checked){
         let selectedOutputResult = findParksbyLocation(nationalParksArray,selectedParkSearchType); displayparksinResults;
-        locationSearch.appendChild(selectedOutputResult);
+        resultsSection.appendChild(selectedOutputResult);
     }
 
 
