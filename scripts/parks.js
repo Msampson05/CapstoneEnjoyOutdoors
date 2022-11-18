@@ -11,11 +11,18 @@ function init() {
     fillDropdownForParkType()
 
     //Select Button
-    const seachbtn = document.getElementById("seachbtn");
-    seachbtn.onclick = seachbtnOnClick;
+    
+    const searchbtn = document.getElementById("searchbtn");
+    searchbtn.onclick = searchbtnOnClick;
+
+    //Create a function to display list of options selected by the radio button 
+    let searchLocationRadio = document.getElementById("searchlocationradio");
+    let searchParkTypeRadio = document.getElementById("searchparktyperadio");
+
+    searchLocationRadio.onchange = selectedSearchType;
+    searchParkTypeRadio.onchange = selectedSearchType;
 
 }
-
 
 function fillDropdownForLocation() {
 
@@ -57,57 +64,88 @@ function fillDropdownForParkType() {
 }
 
 
-//Create a function to display list of options selected by the radio button 
-let searchLocationRadio = document.getElementById("searchlocationradio");
-let searchParkTypeRadio = document.getElementById("searchparktyperadio");
-
-searchLocationRadio.onchange = selectedSearchType;
-searchParkTypeRadio.onchange = selectedSearchType;
-
-
 function selectedSearchType() {
-    let searchParkTypeList = document.getElementById("searchParkTypeList");
-    let searchLocationList = document.getElementById("searchLocationList");
 
-    if (searchLocationRadio.checked == true) {
+    let selectedSearchTypeValue = getSelectedSearchTypeValue();
+   
+    if (selectedSearchTypeValue == "location") {
         searchLocationList.classList.replace("hide", "show");
         searchParkTypeList.classList.replace("show", "hide");
-        fillDropdownForParkType();
     }
-    if (searchParkTypeRadio.checked == true) {
+    if (selectedSearchTypeValue == "parktype") {
         searchParkTypeList.classList.replace("hide", "show")
         searchLocationList.classList.replace("show", "hide");
-        fillDropdownForLocation();
+    }
+}
 
+function getSelectedSearchTypeValue(){
+ 
+    let searchLocationRadio = document.getElementById("searchlocationradio");
+    let searchParkTypeRadio = document.getElementById("searchparktyperadio");
+
+    if (searchLocationRadio.checked == true) {
+        return "location";
+    }
+    if (searchParkTypeRadio.checked == true) {
+        return "parktype";
     }
 }
 
 
 // function to display results on search btn clicked
-// note* When search button is selected cards display parks based option selected
-function seachbtnOnClick() {
+// note* When search button is selected cards display parks based on selectedsearch type
+
+
+function searchbtnOnClick() {
     
+    let selectedSearchTypeValue = getSelectedSearchTypeValue();
 
+    let filteredResults;
 
+    if (selectedSearchTypeValue == "location") {
+       //do something similar to what we did below, using location instead of parktype
+    }
+    if (selectedSearchTypeValue == "parktype") {
+        let parktype = getCurrentlySelectedParkTypeFromDropdown();
+       filteredResults = findParksByParkType(nationalParksArray, parktype );
+    }
+
+    displayparksinResults(filteredResults);
+
+    
+    //let parkTypeSearch = findParksByParkType(LocationName, nationalParksArray);
+    //let locationTypeSeach = findParksbyLocation(State, nationalParksArray);
+    // let selectedOutput = displayparksinResults();
+
+    // if(selectedSearchCategory == searchParkTypeRadio.checked){
+    //     parkTypeSearch
+    // }
+
+ 
 
 }
 
+function getCurrentlySelectedParkTypeFromDropdown(){
+        //todo: figure out the selected value of the parktype dropdown and return it
+          
+}
 
 
 
 //filter parks by parktype 
-function findParksByParkType(selectedPark, parktype) {
-    let selectedPark = []
-    const searchParkTypeList = document.getElementById("searchParkTypeList");
-    for (let park of nationalParksArray) {
-        if (park.LocationName.indexOf(searchParkTypeList.value) != -1) {
-            let selectedPark = (park.LocationName, park.LocationID);
-            searchParkTypeList.appendChild(selectedPark);
+function findParksByParkType(inputParks, inputParktype) {
+    let outputParks = []
+    for (let park of inputParks) {
+       
+        if (park.LocationName.indexOf(inputParktype) != -1) {
+           outputParks.push(park) ;
         }
-        return selectedPark;
     }
+
+    return outputParks;
 }
 
+//todo: rewrite the below method using the patterns seen above in findParksByParkType
 //filter parks by park location
 function findParksbyLocation(selectedLocation, location) {
     let selectedLocationResult = []
@@ -122,45 +160,41 @@ function findParksbyLocation(selectedLocation, location) {
 }
 
 
-//returns "location" or "parktype" depending on current selection
-
-// Search button function to output the results
-
-
 // Output Park Information 
 
-function displayparksinResults() {
+function displayparksinResults(inputParks) {
 
-    const resultsSection = document.getElementById("resultsSection");
-    const parkCardTitle = document.getElementById("parkCardTitle");
-    const parkCardText = document.getElementById("parkCardText");
-    const parkVisitLink = document.getElementById("parkVisitLink");
-
-    for (let displayParks of nationalParksArray ) {
-        if()
+    for(let park of inputParks){
+        console.log(park);
     }
 
-    // nationalParksArray.forEach(park => {
-    //     let resultsSection = document.getElementById('resultsSection')
-
-    //     resultsSection.innerHTML = resultsSection.innerHTML + `div id="resultsSection" class="row">
-    //     <div class="col-3 card" style="width: 18rem;">
-    //         <div class="card-body">
-    //           <h5 id="cardTitle"class="card-title">${park.LocationName}</h5>
-    //           <p id="cardText"class="card-text">${park.Address} ${park.City} ${park.State} ${park.ZipCode} ${park.Phone} ${park.Fax}</p>
-    //           <a href="#" class="btn btn-primary">${park.Visit}</a>
-    //         </div>
-    //       </div>`
-
-    // })
+    //loop through inputparks and show each of them by creating a new HTML element,
+    //adding it as a child element to the resultsOutput div.
 
 
-    //     // call all elements needed for 
-    //  let cardTitle = document.getElementById("cardTitle");
-    //  let cardText = document.getElementById("cardText");
 
-    //  cardTitle.innerHTML= parkTypesArray.LocationName;
-    //  cardText.innerHTML = parkTypesArray.Address + parkTypesArray.State + parkTypesArray.City + parkTypesArray.Zipcode ;
+
+    // const parkCardTitle = document.getElementById("parkCardTitle");
+    // const parkCardText = document.getElementById("parkCardText");
+    // const parkVisitLink = document.getElementById("parkVisitLink");
+    // const searchParkTypeList = document.getElementById("searchParkTypeList");
+    // const searchLocationList = document.getElementById("searchLocationList");
+
+    // for (let displayPark of nationalParksArray ) {
+    //     if(searchParkTypeList.value == "select"){
+    //         parkCardTitle.innerText = displayPark.LocationName;
+    //         parkCardText.innerHTML = "Address : " + displayPark.Address  + "City:" + displayPark.City + "State " + displayPark.State + "ZipCode : " + displayPark.ZipCode;
+    //         parkVisitLink.innerHTML = "Visit" + displayPark.Visit;
+    //     }
+    //     else if(searchLocationList.value == "select" ){
+    //         parkCardTitle.innerText = displayPark.LocationName;
+    //         parkCardText.innerHTML = "Address : " + displayPark.Address  + "City:" + displayPark.City + "State " + displayPark.State + "ZipCode : " + displayPark.ZipCode;
+    //         parkVisitLink.innerHTML = "Visit" + displayPark.Visit;
+
+    //     }
+    // }
+
+    
 }
 
 

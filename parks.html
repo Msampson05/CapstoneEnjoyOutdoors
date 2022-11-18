@@ -83,7 +83,7 @@
              
                 <!--Seach By Location -->
                 <div class="">
-                <select class="form-control hide" name="searchLocation" id="searchLocationList"> 
+                <select class="form-control show" name="searchLocation" id="searchLocationList"> 
                  </select>
                 </div>
 
@@ -96,7 +96,7 @@
             </div>
           
             
-        <button type="submit" id="seachbtn" class="btn btn-primary" value="Select">Search</button>
+        <button type="submit" id="searchbtn" class="btn btn-primary" value="Select">Search</button>
         
 
         <!--Results Output-->
@@ -106,7 +106,7 @@
                     <h1>Park Results:</h1>
                 </div>
             </div>
-                <div id="resultsSection"class="col-3 card row" style="width: 18rem;">
+                <div id="resultsSection"class="col-3 card row hide" style="width: 18rem;">
                     <div class="card-body">
                       <h5 id="parkCardTitle"class="card-title">Card title</h5>
                       <p id="parkCardText" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -177,7 +177,7 @@
 
 </body>
 
-<script src="scripts/parksdemo.js"></script>
+<script src="scripts/parks.js"></script>
 <script src="scripts/locationData.js"></script>
 <script src="scripts/parkTypeData.js"></script>
 <script src="scripts/nationalParkData.js"></script>
