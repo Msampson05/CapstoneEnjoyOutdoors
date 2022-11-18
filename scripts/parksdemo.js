@@ -11,10 +11,13 @@ function init() {
     fillDropdownForParkType()
 
     //Select Button
+        //Select Button
     const seachbtn = document.getElementById("seachbtn");
     seachbtn.onclick = seachbtnOnClick;
 
 }
+
+
 
 
 function fillDropdownForLocation() {
@@ -31,8 +34,8 @@ function fillDropdownForLocation() {
         let locationNewOption = document.createElement("option");
         locationNewOption.value = locationsArray[i];
         locationNewOption.textContent = locationsArray[i];
-    
-            searchLocationList.appendChild(locationNewOption);
+
+        searchLocationList.appendChild(locationNewOption);
     }
 }
 
@@ -56,8 +59,8 @@ function fillDropdownForParkType() {
 
 }
 
-
 //Create a function to display list of options selected by the radio button 
+
 let searchLocationRadio = document.getElementById("searchlocationradio");
 let searchParkTypeRadio = document.getElementById("searchparktyperadio");
 
@@ -70,39 +73,46 @@ function selectedSearchType() {
     let searchLocationList = document.getElementById("searchLocationList");
 
     if (searchLocationRadio.checked == true) {
-        searchLocationList.classList.replace("hide", "show");
-        searchParkTypeList.classList.replace("show", "hide");
+        searchLocationList.classList.replace("hide","show");
+        searchParkTypeList.classList.replace("show","hide");
         fillDropdownForParkType();
     }
     if (searchParkTypeRadio.checked == true) {
-        searchParkTypeList.classList.replace("hide", "show")
-        searchLocationList.classList.replace("show", "hide");
+        searchParkTypeList.classList.replace("hide","show")
+        searchLocationList.classList.replace("show","hide");
         fillDropdownForLocation();
 
     }
 }
 
+//Activate search button to output selected results 
+function seachbtnOnClick(){
+    const locationSearch = document.getElementById("locationSearch");
+    let selectedParkSearchType = locationSearch.value;
+    if(selectedParkSearchType == fillDropdownForParkType){
+        let selectedOutputResult = findParksByParkType(nationalParksArray, selectedParkSearchType); displayparksinResults;
+        locationSearch.appendChild(selectedOutputResult);
+    }
+    else if (selectedParkSearchType = fillDropdownForLocation){
+        let selectedOutputResult = findParksbyLocation(nationalParksArray,selectedParkSearchType); displayparksinResults;
+        locationSearch.appendChild(selectedOutputResult);
+    }
 
-// function to display results on search btn clicked
-// note* When search button is selected cards display parks based option selected
-function seachbtnOnClick() {
-    
+
+
 
 }
 
-
-
-
 //filter parks by parktype 
 function findParksByParkType(selectedPark, parktype) {
-    let selectedPark = []
+    let selectedParkResult = []
     const searchParkTypeList = document.getElementById("searchParkTypeList");
     for (let park of nationalParksArray) {
         if (park.LocationName.indexOf(searchParkTypeList.value) != -1) {
             let selectedPark = (park.LocationName, park.LocationID);
-            searchParkTypeList.appendChild(selectedPark);
+            searchParkTypeList.appendChild(selectedParkResult);
         }
-        return selectedPark;
+        return selectedParkResult;
     }
 }
 
@@ -119,14 +129,7 @@ function findParksbyLocation(selectedLocation, location) {
     }
 }
 
-
-//returns "location" or "parktype" depending on current selection
-
-// Search button function to output the results
-
-
-// Output Park Information 
-
+//Create Loop to display results in cards
 function displayparksinResults() {
     nationalParksArray.forEach(park => {
         let resultsSection = document.getElementById('resultsSection')
@@ -141,17 +144,4 @@ function displayparksinResults() {
           </div>`
 
     })
-
-
-    //     // call all elements needed for 
-    //  let cardTitle = document.getElementById("cardTitle");
-    //  let cardText = document.getElementById("cardText");
-
-    //  cardTitle.innerHTML= parkTypesArray.LocationName;
-    //  cardText.innerHTML = parkTypesArray.Address + parkTypesArray.State + parkTypesArray.City + parkTypesArray.Zipcode ;
 }
-
-
-
-
-
