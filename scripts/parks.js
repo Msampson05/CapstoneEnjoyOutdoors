@@ -11,7 +11,7 @@ function init() {
     fillDropdownForParkType()
 
     //Select Button
-    
+
     const searchbtn = document.getElementById("searchbtn");
     searchbtn.onclick = searchbtnOnClick;
 
@@ -38,8 +38,8 @@ function fillDropdownForLocation() {
         let locationNewOption = document.createElement("option");
         locationNewOption.value = locationsArray[i];
         locationNewOption.textContent = locationsArray[i];
-    
-            searchLocationList.appendChild(locationNewOption);
+
+        searchLocationList.appendChild(locationNewOption);
     }
 }
 
@@ -67,7 +67,7 @@ function fillDropdownForParkType() {
 function selectedSearchType() {
 
     let selectedSearchTypeValue = getSelectedSearchTypeValue();
-   
+
     if (selectedSearchTypeValue == "location") {
         searchLocationList.classList.replace("hide", "show");
         searchParkTypeList.classList.replace("show", "hide");
@@ -78,8 +78,8 @@ function selectedSearchType() {
     }
 }
 
-function getSelectedSearchTypeValue(){
- 
+function getSelectedSearchTypeValue() {
+
     let searchLocationRadio = document.getElementById("searchlocationradio");
     let searchParkTypeRadio = document.getElementById("searchparktyperadio");
 
@@ -94,40 +94,47 @@ function getSelectedSearchTypeValue(){
 
 // function to display results on search btn clicked
 // note* When search button is selected cards display parks based on selectedsearch type
-
-
 function searchbtnOnClick() {
-    
+
+
+
     let selectedSearchTypeValue = getSelectedSearchTypeValue();
 
     let filteredResults;
 
     if (selectedSearchTypeValue == "location") {
-       //do something similar to what we did below, using location instead of parktype
+        let locationType = getCurrentlySelectedLocationFromDropdown();
+        filteredResults = findParksbyLocation(nationalParksArray, locationType);
     }
     if (selectedSearchTypeValue == "parktype") {
         let parktype = getCurrentlySelectedParkTypeFromDropdown();
-       filteredResults = findParksByParkType(nationalParksArray, parktype );
+        filteredResults = findParksByParkType(nationalParksArray, parktype);
     }
 
     displayparksinResults(filteredResults);
 
-    
-    //let parkTypeSearch = findParksByParkType(LocationName, nationalParksArray);
-    //let locationTypeSeach = findParksbyLocation(State, nationalParksArray);
-    // let selectedOutput = displayparksinResults();
 
-    // if(selectedSearchCategory == searchParkTypeRadio.checked){
-    //     parkTypeSearch
-    // }
 
- 
 
 }
 
-function getCurrentlySelectedParkTypeFromDropdown(){
-        //todo: figure out the selected value of the parktype dropdown and return it
-          
+function getCurrentlySelectedParkTypeFromDropdown() {
+    
+    //Call dropdown element 
+    const selectedParkTypeList = document.querySelector('#searchParkTypeList');
+    let selectedParkType = selectedParkTypeList.value;
+
+    return selectedParkType;
+
+}
+
+function getCurrentlySelectedLocationFromDropdown() {
+
+    const selectedLocationTypeList = document.querySelector("#searchLocationList");
+    let selectedLocationType = selectedLocationTypeList.value;
+
+    return selectedLocationType;
+
 }
 
 
@@ -136,66 +143,61 @@ function getCurrentlySelectedParkTypeFromDropdown(){
 function findParksByParkType(inputParks, inputParktype) {
     let outputParks = []
     for (let park of inputParks) {
-       
+
         if (park.LocationName.indexOf(inputParktype) != -1) {
-           outputParks.push(park) ;
+            outputParks.push(park);
         }
     }
 
     return outputParks;
 }
 
-//todo: rewrite the below method using the patterns seen above in findParksByParkType
+
 //filter parks by park location
-function findParksbyLocation(selectedLocation, location) {
-    let selectedLocationResult = []
-    const searchLocationList = document.getElementById("searchLocationList");
-    for (park in nationalParksArray) {
-        if (searchLocationList.value == park.State) {
-            let selectedLocation = (park.LocationName, park.LocationID);
-            searchLocationList.appendChild(selectedLocationResult)
+function findParksbyLocation(inputParks, inputLocationType) {
+    let outputLocation = []
+
+    for (let park of inputParks) {
+
+        if (park.State == inputLocationType) {
+            outputLocation.push(park);
         }
-        return selectedLocationResult;
     }
+    return outputLocation;
 }
 
 
 // Output Park Information 
 
 function displayparksinResults(inputParks) {
+    let resultsOutput = document.getElementById("resultsOutput");
 
-    for(let park of inputParks){
-        console.log(park);
+    for (let park of inputParks) {
+
+        let CardOutput = document.createElement("CardOutput");
+        let CardOutputTitle = document.createElement("CardOutputTitle");
+        let CardOutputText = document.createElement("CardOutputText");
+        let btn = document.createElement('button');
+
+        CardOutput.className = 'card'
+        btn.id = 'send';
+        btn.classList = 'btn-primary';
+        CardOutputTitle.innerHTML = `<h5 <span class='fw-bold'> ${park.LocationName} </span></h5> `
+        CardOutputText.innerHTML = `<h6 <span class='fw-bold'> Address:  ${park.Address} <br>  City: ${park.City} <br>  State :  ${park.State}  <br> Zipcode: ${park.ZipCode}  <br> Phone: ${park.Phone} <br> ${park.Fax} </span></h6> `
+        btn.innerHTML = " Visit Park";
+        btn.href = park.Visit;
+
+        resultsOutput.appendChild(CardOutput);
+        resultsOutput.appendChild(CardOutputTitle);
+        resultsOutput.appendChild(CardOutputText);
+        resultsOutput.appendChild(btn);
+
+        break;
     }
 
-    //loop through inputparks and show each of them by creating a new HTML element,
-    //adding it as a child element to the resultsOutput div.
-
-
-
-
-    // const parkCardTitle = document.getElementById("parkCardTitle");
-    // const parkCardText = document.getElementById("parkCardText");
-    // const parkVisitLink = document.getElementById("parkVisitLink");
-    // const searchParkTypeList = document.getElementById("searchParkTypeList");
-    // const searchLocationList = document.getElementById("searchLocationList");
-
-    // for (let displayPark of nationalParksArray ) {
-    //     if(searchParkTypeList.value == "select"){
-    //         parkCardTitle.innerText = displayPark.LocationName;
-    //         parkCardText.innerHTML = "Address : " + displayPark.Address  + "City:" + displayPark.City + "State " + displayPark.State + "ZipCode : " + displayPark.ZipCode;
-    //         parkVisitLink.innerHTML = "Visit" + displayPark.Visit;
-    //     }
-    //     else if(searchLocationList.value == "select" ){
-    //         parkCardTitle.innerText = displayPark.LocationName;
-    //         parkCardText.innerHTML = "Address : " + displayPark.Address  + "City:" + displayPark.City + "State " + displayPark.State + "ZipCode : " + displayPark.ZipCode;
-    //         parkVisitLink.innerHTML = "Visit" + displayPark.Visit;
-
-    //     }
-    // }
-
-    
 }
+
+
 
 
 
