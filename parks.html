@@ -20,6 +20,8 @@
 </head>
 
 <body>
+    <div class="testing">
+
     <header>
         <nav id="Navbar" class="navbar navbar-expand-lg navbar-light bg-green py-3">
             <div class="container">
@@ -49,7 +51,7 @@
         </nav>
     </header>
 
-    <main>
+    
         <!--Page Introduction-->
         <section id="home">
             <div class="container">
@@ -59,22 +61,42 @@
                     highlights of nationl parks</p>
             </div>
         </section>
+    </div>
 
-
+<main>
        <!--Radio Buttons-->
-        <section>
-            <h2> Seach For A Park </h2>
+       <div class="card">
+        <h5 class="card-header">Search For A Park</h5>
+        <div class="card-body">
             <div id="radioselectoptions">
                 <div>
-                    <label for="searchlocationradio">Serach by Location</label>
+                    <h9 class="card-title ml-3"><label for="searchlocationradio">Search by Location</h9></label>
                     <input id="searchlocationradio" type="radio" name="searchtype" value="searchlocation" checked>
                 </div>
                 <div>
-                    <label for="searchparktyperadio">Search by Park Type</label>
+                    <h9 class="card-title ml-3"><label for="searchparktyperadio">Search by Park Type</h9></label>
                     <input id="searchparktyperadio" type="radio" name="searchtype" value="searchparktype">
                 </div>
             </div>
-        </section>
+          
+      </div>
+
+
+
+
+       <!-- <section class="ml-5 mt-3">
+            <h4> Seach For A Park </h4>
+            <div id="radioselectoptions">
+                <div>
+                    <h9><label for="searchlocationradio">Search by Location</h9></label>
+                    <input id="searchlocationradio" type="radio" name="searchtype" value="searchlocation" checked>
+                </div>
+                <div>
+                    <h9><label for="searchparktyperadio">Search by Park Type</h9></label>
+                    <input id="searchparktyperadio" type="radio" name="searchtype" value="searchparktype">
+                </div>
+            </div>
+        </section> -->
             
             
              
@@ -82,14 +104,14 @@
             <div id="locationSearch"class="mb-3">
              
                 <!--Seach By Location -->
-                <div class="">
+                <div class="ml-5">
                 <select class="form-control show" name="searchLocation" id="searchLocationList"> 
                  </select>
                 </div>
 
              <!--Search By Park Type -->
         
-            <div class="mb-3 mt-2" >
+            <div class="ml-5" >
               <select class="form-control hide" name="searchParkType" id="searchParkTypeList">   
                  </select>
               </div>
@@ -100,10 +122,10 @@
         
 
         <!--Results Output-->
-        <div id="resultsOutput" class="mt-3">
+        <div id="resultsOutput" class="mt-3 ml-5">
             <div class="row">
                 <div class="col">
-                    <h1>Park Results:</h1>
+                    <h6>Park Results:</h6>
                 </div>
             </div>
                 <div id="resultsSection"class="col-3 card row " style="width: 18rem;">
@@ -113,15 +135,6 @@
                       <a id="parkVisitLink" href="" class="btn btn-primary">Go somewhere</a>
                     </div> -->
                   </div>
-
-
-
-
-
-
-
-
-
 
 
     </main>
@@ -171,17 +184,17 @@
         </div>
 
 
-
+        <script src="scripts/parks.js"></script>
+        <script src="scripts/locationData.js"></script>
+        <script src="scripts/parkTypeData.js"></script>
+        <script src="scripts/nationalParkData.js"></script>
+        
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
 </body>
 
-<script src="scripts/parks.js"></script>
-<script src="scripts/locationData.js"></script>
-<script src="scripts/parkTypeData.js"></script>
-<script src="scripts/nationalParkData.js"></script>
 
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
 
 </html>

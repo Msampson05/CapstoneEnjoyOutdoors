@@ -171,7 +171,7 @@ function findParksbyLocation(inputParks, inputLocationType) {
 
 function displayparksinResults(inputParks) {
     let resultsOutput = document.getElementById("resultsOutput");
-
+    resultsOutput.innerHTML = "";
     for (let park of inputParks) {
 
         let CardOutput = document.createElement("CardOutput");
@@ -182,9 +182,9 @@ function displayparksinResults(inputParks) {
         CardOutput.className = 'card'
         btn.id = 'send';
         btn.classList = 'btn-primary';
-        CardOutputTitle.innerHTML = `<h5 <span class='fw-bold'> ${park.LocationName} </span></h5> `
-        CardOutputText.innerHTML = `<h6 <span class='fw-bold'> Address:  ${park.Address} <br>  City: ${park.City} <br>  State :  ${park.State}  <br> Zipcode: ${park.ZipCode}  <br> Phone: ${park.Phone} <br> FAX: ${park.Fax} </span></h6> `
-        btn.innerHTML = " Visit Park";
+        CardOutputTitle.innerHTML = `<h7 <span class='fw-bold'> ${park.LocationName} </span></h7>`
+        CardOutputText.innerHTML = `<h8 <span class='fw-bold'> Address:  ${park.Address} <br>  City: ${park.City} <br>  State :  ${park.State}  <br> Zipcode: ${park.ZipCode}  <br> Phone: ${park.Phone} <br> FAX: ${park.Fax}  <br> </span></h8> `
+        btn.innerHTML = `Visit Park`;
         btn.href = `${park.Visit}`;
 
         resultsOutput.appendChild(CardOutput);
