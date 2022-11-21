@@ -40,8 +40,8 @@ function seachbtnOnClick(){
 
         }
         else if (mountain.name == searchMountainList.value){
-            mountainCardTitle.innerText = mountain.name;
-            mountainCardText.innerHTML = "Description: " + mountain.desc + "Elevation: " + mountain.elevation + "Coordinates: " + mountain.coords.lat + ", " + mountain.coords.lng;
+            mountainCardTitle.innerText =`${mountain.name}`;
+            mountainCardText.innerHTML = " <h5> Description: </h5> " + mountain.desc + " <br> <h5> Elevation: </h5> " + mountain.elevation + "<br> <h5> Coordinates: </h5>" + mountain.coords.lat + ", " + mountain.coords.lng;
             mountainCardImg.src = "assests/images/" + mountain.img;
         }
     }
