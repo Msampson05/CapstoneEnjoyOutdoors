@@ -3,17 +3,16 @@ A website to help users search and get information of parks and mountains.
 # Imperial Parks
 ## Imperial Parks provide a search engine to users
 --------------------------
-This website was constructed for a capstone project. The purpose is to show understanding of basic html and css language. 
-I created core essence of reality, it is my mental health awareness instagram page that I transformed into an ecommerce website.
-The products for sale are photos from my Instagram page as we release products of sale by core essence. 
-The company started as an instagram page and moved into an online store. This website is functional but not ready to use. 
+This website was constructed for a capstone project. The purpose is to show understanding of basic HTML, CSS and JavaScript language. 
+Users search for parks within the U.S.A. with a filter. This provides two ways to search for a park; by parktype and location.
+The main object is to programmatically upload the selected park or moutain into a div and have a list of parks or a mountained outputted. 
 ---
 The pages include:
  * Homepage
  * Parks
  * Mountain Page 
 
-This an interesting JavaScript that I wrote. It allows you to hover and create a color for your hover effect:
+This an interesting JavaScript that I wrote. This function allows me to create html elements as well as output for each park within the multarray:
 ```
 function displayparksinResults(inputParks) {
     let resultsOutput = document.getElementById("resultsOutput");
@@ -48,4 +47,3 @@ And to add an image, try this:
 ![Image](assests/images/capstone2ReadMe.JPG "icon")
 ![Image](assests/images/capstone2ReadMe2.JPG "icon")
 ![Image](assests/images/capstone2ReadMe3.JPG "icon")
-![Image](assests/images/capstone2ReadMe4.JPG "icon")
