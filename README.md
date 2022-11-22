@@ -46,6 +46,6 @@ function displayparksinResults(inputParks) {
 ```
 And to add an image, try this: 
 ![Image](assests/images/capstone2ReadMe.JPG "icon")
-![Image](assests/images/capstone2ReadMe2.JPG"icon")
-![Image](assests/images/capstone2ReadMe3.JPG"icon")
-![Image](assests/images/capstone2ReadMe4.JPG"icon")
+![Image](assests/images/capstone2ReadMe2.JPG "icon")
+![Image](assests/images/capstone2ReadMe3.JPG "icon")
+![Image](assests/images/capstone2ReadMe4.JPG "icon")
