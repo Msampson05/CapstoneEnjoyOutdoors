@@ -22,104 +22,106 @@
 <body id="containerBackground">
     <div class="testing">
 
-    <header>
-        <nav id="Navbar" class="navbar navbar-expand-lg navbar-light bg-green py-3">
-            <div class="container">
-                <img src="/assests/images/navbarlogo.JPG" alt="">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="parks.html">Parks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="mountains.html">Mountain Infomation</a>
-                        </li>
-                        <li class="nav-item">
-                            <i class="fa-brands fa-searchengin"></i>
-                        </li>
-                    </ul>
+        <header>
+            <nav id="Navbar" class="navbar navbar-expand-lg navbar-light bg-green py-3">
+                <div class="container">
+                    <img src="/assests/images/navbarlogo.JPG" alt="">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="parks.html">Parks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mountains.html">Mountain Infomation</a>
+                            </li>
+                            <li class="nav-item">
+                                <i class="fa-brands fa-searchengin"></i>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
 
-    
+
         <!--Page Introduction-->
         <section id="home">
             <div class="container">
                 <h5>For The Love Of Nature</h5>
                 <h1><span>Park</span> Search</h1>
-                <p>Use our amazing search bar <br> to find a park near you and 
+                <p>Use our amazing search bar <br> to find a park near you and
                     highlights of nationl parks</p>
             </div>
         </section>
     </div>
 
-<main>
-    <div class="container">
-       <!--Radio Buttons-->
-       <div class="card">
-        <h5 class="card-header">Search For A Park</h5>
-        <div class="card-body">
-            <div id="radioselectoptions">
-                <div>
-                    <h9 class="card-title ml-3"><label for="searchlocationradio">Search by Location</h9></label>
-                    <input id="searchlocationradio" type="radio" name="searchtype" value="searchlocation" checked>
-                </div>
-                <div>
-                    <h9 class="card-title ml-3"><label for="searchparktyperadio">Search by Park Type</h9></label>
-                    <input id="searchparktyperadio" type="radio" name="searchtype" value="searchparktype">
-                </div>
-            </div>
-          
-      </div>
+    <main>
+        <div class="container">
+            <!--Radio Buttons-->
+            <div class="card">
+                <h5 class="card-header">Search For A Park</h5>
+                <div class="card-body">
+                    <div id="radioselectoptions">
+                        <div>
+                            <h9 class="card-title ml-3"><label for="searchlocationradio">Search by Location</h9></label>
+                            <input id="searchlocationradio" type="radio" name="searchtype" value="searchlocation"
+                                checked>
+                        </div>
+                        <div>
+                            <h9 class="card-title ml-3"><label for="searchparktyperadio">Search by Park Type</h9>
+                            </label>
+                            <input id="searchparktyperadio" type="radio" name="searchtype" value="searchparktype">
+                        </div>
+                    </div>
 
-            
-            
-             
-            <!--Search Section-->
-            <div id="locationSearch"class="mb-3">
-             
-                <!--Seach By Location -->
-                <div class="ml-5">
-                <select class="form-control show" name="searchLocation" id="searchLocationList"> 
-                 </select>
                 </div>
 
-             <!--Search By Park Type -->
-        
-            <div class="ml-5" >
-              <select class="form-control hide" name="searchParkType" id="searchParkTypeList">   
-                 </select>
-              </div>
-            </div>
-          
-            
-        <button type="submit" id="searchbtn" class="btn btn-primary" value="Select">Search</button>
-        
 
-        <!--Results Output-->
-        <div id="resultsOutput" class="mt-3 ml-5">
-            <div class="row">
-                <div class="col"></div>
-            </div>
-                <div id="resultsSection"class="col-3 card row " style="width: 18rem;">
-                  <!--  <div class="card-body">
+
+
+                <!--Search Section-->
+                <div id="locationSearch" class="mb-3">
+
+                    <!--Seach By Location -->
+                    <div class="ml-5">
+                        <select class="form-control show" name="searchLocation" id="searchLocationList">
+                        </select>
+                    </div>
+
+                    <!--Search By Park Type -->
+
+                    <div class="ml-5">
+                        <select class="form-control hide" name="searchParkType" id="searchParkTypeList">
+                        </select>
+                    </div>
+                </div>
+
+
+                <button type="submit" id="searchbtn" class="btn btn-primary" value="Select">Search</button>
+
+
+                <!--Results Output-->
+                <div id="resultsOutput" class="mt-3 ml-5">
+                    <div class="row">
+                        <div class="col"></div>
+                    </div>
+                    <div id="resultsSection" class="col-3 card row " style="width: 18rem;">
+                        <!--  <div class="card-body">
                       <h5 id="parkCardTitle"class="card-title">Card title</h5>
                       <p id="parkCardText" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a id="parkVisitLink" href="" class="btn btn-primary">Go somewhere</a>
                     </div> -->
-                  </div>
+                    </div>
 
-        </div>
+                </div>
     </main>
 
 
@@ -171,7 +173,7 @@
         <script src="scripts/locationData.js"></script>
         <script src="scripts/parkTypeData.js"></script>
         <script src="scripts/nationalParkData.js"></script>
-        
+
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
