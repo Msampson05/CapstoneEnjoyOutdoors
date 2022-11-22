@@ -12,7 +12,7 @@ The pages include:
  * Parks
  * Mountain Page 
 
-This an interesting JavaScript that I wrote. This function allows me to create html elements as well as output for each park within the multarray:
+This an interesting JavaScript that I wrote. This function allows me to create html elements as well as output for each park within the multiarray:
 ```
 function displayparksinResults(inputParks) {
     let resultsOutput = document.getElementById("resultsOutput");
