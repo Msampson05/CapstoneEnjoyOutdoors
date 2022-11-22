@@ -119,7 +119,7 @@ function searchbtnOnClick() {
 }
 
 function getCurrentlySelectedParkTypeFromDropdown() {
-    
+
     //Call dropdown element 
     const selectedParkTypeList = document.querySelector('#searchParkTypeList');
     let selectedParkType = selectedParkTypeList.value;
@@ -192,7 +192,7 @@ function displayparksinResults(inputParks) {
         resultsOutput.appendChild(CardOutputText);
         resultsOutput.appendChild(btn);
 
-        
+
     }
 
 }
