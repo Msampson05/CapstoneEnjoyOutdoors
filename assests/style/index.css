@@ -1,10 +1,6 @@
 
  /*Nav Bar*/
 
-    
-
-
-
 .navbar-light .navbar-nav .nav-link {
     padding: 0 20px;
     color: black;
@@ -80,6 +76,10 @@
   cursor: pointer;
   margin: auto 20px auto;
 
+}
+
+#containerBackground{
+  background-color: #000;
 }
 
 

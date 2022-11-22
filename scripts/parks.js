@@ -182,8 +182,8 @@ function displayparksinResults(inputParks) {
         CardOutput.className = 'card'
         btn.id = 'send';
         btn.classList = 'btn-primary';
-        CardOutputTitle.innerHTML = `<h7 <span class='fw-bold'> ${park.LocationName} </span></h7>`
-        CardOutputText.innerHTML = `<h8 <span class='fw-bold'> Address:  ${park.Address} <br>  City: ${park.City} <br>  State :  ${park.State}  <br> Zipcode: ${park.ZipCode}  <br> Phone: ${park.Phone} <br> FAX: ${park.Fax}  <br> </span></h8> `
+        CardOutputTitle.innerHTML = `<h7 <span class='fw-bold'> ${park.LocationName} </span></h7> `
+        CardOutputText.innerHTML = `<h8 <span class='fw-bold'> <br> Address: ${park.Address} <br>  City: ${park.City} <br>  State: ${park.State}  <br> Zipcode: ${park.ZipCode}  <br> Phone: ${park.Phone} <br> FAX: ${park.Fax}  <br> </span></h8> `
         btn.innerHTML = `Visit Park`;
         btn.href = `${park.Visit}`;
 
